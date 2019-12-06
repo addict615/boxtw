@@ -77,7 +77,6 @@ $(document).ready(function() {
       $("#WeeklyTable").tablesorter({ widgets: ["zebra", "cssStickyHeaders"] });
 
       for (i = 1; i < data.values.length; i += 20) {
-        //建立選擇器內容 i可隨表格調整1或0
         var employeeName = data.values[i][0];
         $("#wboxSelect").append(
           $("<option>", {
@@ -92,14 +91,14 @@ $(document).ready(function() {
   );
 });
 
-//按鈕送出 取值
+
 //$('#employeeList').submit(function(e){
 $("#wboxSelect").change(function() {
   //  e.preventDefault();
   displayWboxoffice($("#wboxSelect").val());
 });
 
-//顯示DB資料詳細
+
 function displayWboxoffice(name) {
   var table = $(
     '<table ID="Querytable" class="table table-striped tablesorter top20"></table>'
