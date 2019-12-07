@@ -105,11 +105,13 @@ $(document).ready(function() {
       $("#WeeklyTable").tablesorter({ widgets: ["zebra", "cssStickyHeaders"] });
 
       for (i = 1; i < data.values.length; i += 20) {
-        var employeeName = data.values[i][0];
+        var Startdate = data.values[i][11];
+        var Enddate = data.values[i][0];
+        
         $("#wboxSelect").append(
           $("<option>", {
-            value: employeeName,
-            text: employeeName
+            value: Enddate,
+            text: Startdate + " - " + Enddate
           })
         );
       }
