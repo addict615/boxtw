@@ -328,11 +328,13 @@
   text-align: right;
 }
 
-.boxtable {
-  margin: 10px;
-}
-
 .descr{
-  margin:10px;
+  margin-top:20px;
+  margin-buttom:10px;
   font-size:small;
 }
+
+.boxtable{
+   margin: 0 auto;
+}
+
