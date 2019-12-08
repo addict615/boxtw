@@ -217,10 +217,10 @@
   .top20 td:nth-child(4),
   .top20 td:nth-child(6),
   .top20 td:nth-child(10),
-  .topy100 th:nth-child(6),
-  .topy100 th:nth-child(7),
-  .topy100 td:nth-child(6),
-  .topy100 td:nth-child(7){
+  .topy100 th:last-child,
+  .topy100 th:nth-last-child(2),
+  .topy100 td:last-child,
+  .topy100 td:nth-last-child(2){
     display: none;
   }
 }
