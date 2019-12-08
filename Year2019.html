@@ -66,7 +66,7 @@ $(document).ready(function() {
       );
       table.append(
         $(
-          '<thead><tr><th>年度排名</th><th>中文片名</th><th class="sorter-namedNumbers">累積總人次</th><th class="sorter-namedNumbers">累積總票房</th><th>上映日期</th><th class="sorter-namedNumbers">首周票房</th><th >國別地區</th></thead>'
+          '<thead><tr><th>年度排名</th><th>中文片名</th><th class="sorter-namedNumbers">累積總人次</th><th class="sorter-namedNumbers">累積總票房</th><th>上映日期</th><th >國別地區</th>th><th class="sorter-namedNumbers">首周票房</th><th class="sorter-namedNumbers">首周占比</th></thead>'
         )
       );
       for (i = 1; i < 101; i++) {
@@ -86,7 +86,9 @@ $(document).ready(function() {
               "</td><td>" +
               employee[5] +
               "</td><td>" +
-              employee[6] +
+              employee[6] +            
+              "</td><td>" +
+              employee[8] +
               "</td>" 
           )
         );
