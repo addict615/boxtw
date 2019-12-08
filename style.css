@@ -218,7 +218,9 @@
   .top20 td:nth-child(6),
   .top20 td:nth-child(10),
   .topy100 th:nth-child(6),
-  .topy100 td:nth-child(6){
+  .topy100 th:nth-child(7),
+  .topy100 td:nth-child(6),
+  .topy100 td:nth-child(7){
     display: none;
   }
 }
@@ -327,15 +329,15 @@
   padding: 10px;
 }
 .topy100 td:nth-child(1),
-.topy100 td:nth-child(4), 
-.topy100 td:last-child,
+.topy100 td:nth-last-child(4), 
+.topy100 td:nth-last-child(2),
 .topy100 td:nth-last-child(3){
   text-align: center;
 }
 
 .topy100 td:nth-child(3),
-.topy100 td:nth-last-child(4),
-.topy100 td:nth-last-child(2){
+.topy100 td:nth-child(4),
+.topy100 td:last-child{
   text-align: right;
 }
 
