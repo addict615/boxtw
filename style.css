@@ -216,7 +216,9 @@
   .top20 th:nth-child(10),
   .top20 td:nth-child(4),
   .top20 td:nth-child(6),
-  .top20 td:nth-child(10){
+  .top20 td:nth-child(10),
+  .topy100 th:nth-child(6),
+  .topy100 td:nth-child(6){
     display: none;
   }
 }
