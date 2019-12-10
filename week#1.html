@@ -1,0 +1,85 @@
+<html lang="zh-TW">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/parsers/parser-named-numbers.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/css/theme.default.min.css" rel="stylesheet">
+  <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+  <link href="https://www.w3schools.com/lib/w3-theme-blue-grey.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>週冠軍 - 票匣子</title>
+  </head>
+
+ <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="index.html">
+      <span class="h3 mx-1">票匣子</span></a>
+  <!-- .navbar-toggler 漢堡式選單按鈕 -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- .navbar-toggler-icon 漢堡式選單Icon -->
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="">單周票房<span class="sr-only"></span></a>
+      </li>
+      <!-- .dropdown Navbar下拉式選單 -->
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">年度票房</a>
+        <!-- .dropdown-menu 下拉選單內容 -->
+        <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item " href="year2019.html">2019年</a>
+          <a class="dropdown-item " href="year2018.html">2018年</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">歷史票房</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="col-md-8 p-2 h3 w3-container w3-text-theme css-title"> 週 冠 軍 </div>
+<div id="loading">Connecting... </div>
+<div id="css-table" class="css-table">
+</div>
+
+<div id="datadate" class="col-md-2 p-1 mt-2 w3-container w3-theme-l3 datafrom">資料來源：mojo.com
+  </div>
+  
+  
+ <script>
+var employeeData;
+$(document).ready(function() {
+  $.getJSON(
+    "https://sheets.googleapis.com/v4/spreadsheets/1N2upLY61o3hxaW4rAgqBjx7U1LntsmLutXE9LTAwCy8/values/champion!B2:G10?key=AIzaSyBn2U8krqzA8EZrKk2Ca6HXA3JHj0Y76F0",
+    function(data) {
+      employeeData = data;
+      console.log(data);
+
+      $('#css-table').append( '<div class="thead"><div class="tr "><div class="th">周次</div><div class="th">美國</div><div class="th">中國</div><div class="th">日本</div><div class="th">韓國</div><div class="th">台灣</div></div></div>')
+      for(i=0;i<data.values.length;i++){
+    var employee = employeeData.values[i];
+      $('#css-table').append( '<div class="tbody"><div class="tr"><div class="td">' +  employee[0] + '</div><div class="td">'+ employee[1]+ '</div><div class="td">' + employee[2] + '</div><div class="td">' + employee[3] + '</div><div class="td">' + employee[4] + '</div><div class="td">' + employee[5] + '</div></div></div>' );
+    
+      $('#css-table').show();
+  }
+      
+    
+      $("#datadate").show();
+      $("#loading").hide();
+    }
+  );
+});
+ </script>
+ 
+ </body>
+</html>
