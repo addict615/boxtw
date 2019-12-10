@@ -341,6 +341,40 @@
   text-align: right;
 }
 
+
+.css-table {
+  display: table;
+  border: 2px solid #d5d5d5;
+  margin:0 auto;
+}
+.css-table .thead {
+  display: table-header-group;
+  font-weight:bold;
+}
+.css-table .tbody {
+  display: table-row-group;
+}
+.css-table .tr {
+  display: table-row;
+  padding: 10px;
+}
+.css-table .th,
+.css-table .td {
+  display: table-cell;
+  border-width: 1px;
+  border-bottom-style: dotted;
+  border-color: #adb5bd ;
+  padding: 10px;
+  font-size:smaller;
+  text-align: center;
+}
+
+.datafrom{
+    margin: 0 auto;
+    font-size:small;
+    display:none;
+}
+
 .descr{
   font-size:small;
   display:none;
