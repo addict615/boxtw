@@ -346,6 +346,7 @@
   display: table;
   border: 2px solid #d5d5d5;
   margin:0 auto;
+  width:95%;
 }
 .css-table .thead {
   display: table-header-group;
@@ -364,7 +365,7 @@
   border-width: 1px;
   border-bottom-style: dotted;
   border-color: #adb5bd ;
-  padding: 10px;
+  padding: 12px;
   font-size:smaller;
   text-align: center;
 }
