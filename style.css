@@ -372,6 +372,7 @@
 .datafrom{
     font-size:small;
     display:none;
+    margin: 0 auto;
 }
 
 .descr{
@@ -380,9 +381,6 @@
   margin-top:10px;
 }
 
-.boxtable{
-   margin: 0 auto;
-}
 
 .css-title {
   font-weight: bold;
