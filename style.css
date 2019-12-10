@@ -351,3 +351,7 @@
    margin: 0 auto;
 }
 
+.css-title {
+  font-weight: bold;
+  text-align: center;
+}
