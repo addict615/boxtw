@@ -342,6 +342,31 @@
 }
 
 
+.alltop100 {
+  border: 1px solid #d5d5d5;
+  border-collapse: collapse;
+  padding: 20px;
+}
+.alltop100 th {
+  border: 1px solid #d5d5d5;
+  padding: 15px;
+}
+.alltop100 td {
+  border: 1px solid #d5d5d5;
+  padding: 10px;
+}
+.alltop100 td:nth-child(1),
+.alltop100 td:nth-last-child(2),
+.alltop100 td:last-child{
+  text-align: center;
+}
+
+.alltop100 td:nth-child(3),
+.alltop100 td:nth-child(4){
+  text-align: right;
+}
+
+
 .css-table {
   display: table;
   margin:0 auto;
