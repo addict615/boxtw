@@ -1,0 +1,125 @@
+<html lang="zh-TW">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/parsers/parser-named-numbers.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/css/theme.default.min.css" rel="stylesheet">
+  <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+  <link href="https://www.w3schools.com/lib/w3-theme-blue-grey.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>2019年度票房 - 票匣子</title>
+  </head>
+
+ <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="weekly.html">
+      <span class="h3 mx-1">票匣子</span></a>
+  <!-- .navbar-toggler 漢堡式選單按鈕 -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- .navbar-toggler-icon 漢堡式選單Icon -->
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="weekly.html">單週票房<span class="sr-only"></span></a>
+      </li>
+      <!-- .dropdown Navbar下拉式選單 -->
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">年度票房</a>
+        <!-- .dropdown-menu 下拉選單內容 -->
+        <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item " href="#">2020年</a>
+          <a class="dropdown-item " href="year2019.html">2019年</a>
+          <a class="dropdown-item " href="year2018.html">2018年</a>
+          <a class="dropdown-item " href="year2017.html">2017年</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="alltime.html">歷史票房</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="number-one.html">週冠軍</a>
+      </li      
+    </ul>
+  </div>
+
+</nav>
+
+  <div class="row">
+  <div class="col-md-8 p-2 ml-5 h3 w3-container w3-text-theme css-title">2 0 1 9 年 度 票 房</div>
+  <div id="datadate" class="col-md-3 p-2 ml-4 w3-container w3-theme-l3 descr">
+    映期統計：2019/12/1-2020/11/30<br />國家電影中心統計至：
+  </div>
+</div>
+<div class="lead" id="loading">Connecting... </div>
+  
+<div id="weekly_table" class="col-lg-12 ml-auto"></div>
+
+
+
+ <script>
+var employeeData;
+$(document).ready(function() {
+  $.getJSON(
+    "https://sheets.googleapis.com/v4/spreadsheets/1N2upLY61o3hxaW4rAgqBjx7U1LntsmLutXE9LTAwCy8/values/2020top100!A1:I101?key=AIzaSyBn2U8krqzA8EZrKk2Ca6HXA3JHj0Y76F0",
+    function(data) {
+      employeeData = data;
+      console.log(data);
+
+      var table = $(
+        '<table ID="WeeklyTable" class="table table-striped tablesorter topy100"></table>'
+      );
+      table.append(
+        $(
+          '<thead><tr><th>年度排名</th><th>中文片名</th><th class="sorter-namedNumbers">累積總人次</th><th class="sorter-namedNumbers">累積總票房</th><th>上映日期</th><th >國別地區</th>th><th class="sorter-namedNumbers">首周票房</th><th class="sorter-namedNumbers">首周占比</th></thead>'
+        )
+      );
+      for (i = 1; i < 101; i++) {
+        var employee = employeeData.values[i];
+        table.append(
+          $(
+            "<tr><td>" +
+              employee[0] +
+              "</td><td>" +
+              employee[1] +
+              "</td><td>" +
+              employee[2] +
+              "</td><td>" +
+              employee[3] +
+              "</td><td>" +
+              employee[4] +
+              "</td><td>" +
+              employee[6] +
+              "</td><td>" +
+              employee[5] +            
+              "</td><td>" +
+              employee[8] +
+              "</td>" 
+          )
+        );
+      }
+      $("#weekly_table").html("");
+      $("#weekly_table").append(table);
+      $("#datadate").append(employee[7]); 
+      $("#WeeklyTable").tablesorter({ widgets: ["zebra", "cssStickyHeaders"] });
+
+      $("#weekly_table").show();
+      $("#datadate").show();
+      $("#loading").hide();
+    }
+  );
+});
+
+
+ </script>
+ 
+ </body>
+</html>
+
